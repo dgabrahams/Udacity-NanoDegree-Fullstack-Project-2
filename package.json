@@ -1,7 +1,7 @@
 {
-  "name": "224sb028-hikma-sharepoint-project",
+  "name": "dgabrahams-udacity-fullstack-portfolio-site",
   "version": "1.0.0",
-  "description": "This is the Task Manager to enable the use of SCSS and automate jobs such as CSS & JS minification plus the generation of Sprite files.",
+  "description": "This is the Task Manager to enable the use of SCSS and automate jobs such as CSS, JS, HTML and Image minification with scope to manage the generation of Sprite files.",
   "main": "gulpfile.js",
   "license": "MIT",
   "repository": "",
@@ -16,7 +16,8 @@
     "gulp-uglify": "^3.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
-    "gulp-htmlmin": "^4.0.0"
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-tinypng": "^1.0.2"
   },
   "devDependencies": {
     "gulp-jshint": "^2.0.4",

@@ -12,6 +12,7 @@ var replace = require('gulp-url-replace');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var htmlMinify = require('gulp-htmlmin');
+var imageMinify = require('gulp-tinypng');
 
 var paths = {
   src : {
@@ -19,7 +20,8 @@ var paths = {
     html: './src/html/*.html',
     js: './src/js/*.js',
     scss: './src/scss/*.scss',
-    scssPartials: './src/scss/partials/*.scss'
+    scssPartials: './src/scss/partials/*.scss',
+    images: './src/images/*'
   },
   dist: {
     root: './dist',
@@ -27,6 +29,7 @@ var paths = {
     js: './dist/*.js',
     minified: './dist/minified',
     css: './dist/*.css',
+    images: './dist/images',
     clean: './dist/*',
   }
 };
@@ -90,6 +93,12 @@ gulp.task('minify-html', function() {
     .pipe(gulp.dest(paths.dist.minified));
 });
 
+// Image Tasks
+gulp.task('minify-img', function() {
+  return gulp.src(paths.src.images)
+      .pipe(imageMinify('FtmO8Kq1X4fIvgco5rDm3dfrZXCWP3gK'))
+      .pipe(gulp.dest(paths.dist.images));
+});
 
 // Watch Tasks
 gulp.task('watch', function() {
