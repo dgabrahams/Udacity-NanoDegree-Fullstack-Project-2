@@ -11,28 +11,27 @@ var uglify = require('gulp-uglify');
 var replace = require('gulp-url-replace');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
-
-var htmlMinify = require('html-minifier').minify;
-
+var htmlMinify = require('gulp-htmlmin');
 
 var paths = {
   src : {
     root: './src',
+    html: './src/html/*.html',
     js: './src/js/*.js',
     scss: './src/scss/*.scss',
     scssPartials: './src/scss/partials/*.scss'
   },
   dist: {
     root: './dist',
+    html: './dist/*.html',
     js: './dist/*.js',
     minified: './dist/minified',
-    //unminified: './dist/unminified',
     css: './dist/*.css',
     clean: './dist/*',
   }
 };
 
-// Remove all generated files.
+// Remove all previously generated files.
 gulp.task('clean', function() {
   return del([paths.dist.clean]).then(paths => {
     console.info(chalk.green( 'Deleted files and folders:\n', paths.join('\n') ));
@@ -50,7 +49,6 @@ gulp.task('js-lint', function() {
 gulp.task('js-uglify', function (cb) {
   return gulp.src([paths.src.js])
     .pipe(concat('HCON-Script.js'))
-    //.pipe(gulp.dest(paths.dist.unminified))
     .pipe(rename('HCON-Script.js'))
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist.minified));
@@ -60,7 +58,6 @@ gulp.task('js-uglify', function (cb) {
 gulp.task('sass', function () {
   return gulp.src([paths.src.scss,paths.src.scssPartials])
     .pipe(sass().on('error', sass.logError))
-    //.pipe(gulp.dest(paths.dist.unminified))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest(paths.dist.minified));
 });
@@ -76,16 +73,29 @@ gulp.task(`sass-lint`, () => {
 // CSS Tasks
 gulp.task('minify-css', function() {
   return gulp.src(paths.dist.css)
-    //.pipe(gulp.dest(paths.dist.unminified))
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    // .pipe(gulp.dest(paths.dist.root));
     .pipe(gulp.dest(paths.dist.minified));
 });
+
+// HTML Tasks
+gulp.task('minify-html', function() {
+  return gulp.src(paths.src.html)
+    .pipe(htmlMinify({
+      collapseWhitespace: true,
+      minifyCSS: true,
+      removeComments: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true
+    }))
+    .pipe(gulp.dest(paths.dist.minified));
+});
+
 
 // Watch Tasks
 gulp.task('watch', function() {
   gulp.watch([paths.src.scss,paths.src.scssPartials], ['sass-lint', 'sass']);
   gulp.watch(paths.src.js, ['js-lint', 'js-uglify']);
+  gulp.watch(paths.src.html, ['minify-html']);
 });
 
 //Default Tasks
