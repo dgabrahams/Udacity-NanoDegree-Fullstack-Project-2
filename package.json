@@ -1,0 +1,28 @@
+{
+  "name": "224sb028-hikma-sharepoint-project",
+  "version": "1.0.0",
+  "description": "This is the Task Manager to enable the use of SCSS and automate jobs such as CSS & JS minification plus the generation of Sprite files.",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "repository": "",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "del": "^2.2.2",
+    "gulp-clean-css": "^3.4.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-sass-lint": "^1.3.2",
+    "pump": "^1.0.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^2.0.4",
+    "gulp-url-replace": "^1.0.2",
+    "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
