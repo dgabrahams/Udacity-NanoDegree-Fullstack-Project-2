@@ -51,8 +51,8 @@ gulp.task('js-lint', function() {
 // JS Concat and Uglify
 gulp.task('js-uglify', function (cb) {
   return gulp.src([paths.src.js])
-    .pipe(concat('HCON-Script.js'))
-    .pipe(rename('HCON-Script.js'))
+    .pipe(concat('HCON-Script.js')) //RENAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    .pipe(rename('HCON-Script.js')) //RENAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     .pipe(uglify())
     .pipe(gulp.dest(paths.dist.minified));
 });
