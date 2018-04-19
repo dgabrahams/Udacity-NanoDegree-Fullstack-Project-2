@@ -74,9 +74,10 @@ gulp.task('js-uglify', function (cb) {
 
 
 gulp.task('sass', function () {
-  return gulp.src([paths.src.scss,paths.src.scssPartials,paths.src.scssInuit])
+  return gulp.src([paths.src.scssInuit,paths.src.scss,paths.src.scssPartials])
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(concat('main.min.css'))
     .pipe(gulp.dest(paths.dist.css));
 });
 
