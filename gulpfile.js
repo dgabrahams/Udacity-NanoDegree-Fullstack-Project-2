@@ -21,15 +21,17 @@ var paths = {
     js: './src/js/*.js',
     scss: './src/scss/*.scss',
     scssPartials: './src/scss/partials/*.scss',
+    scssInuit: './node_modules/inuitcss/*.scss',
     images: './src/images/*'
   },
   dist: {
     root: './dist',
-    html: './dist/*.html',
+    html: './dist',
     js: './dist/*.js',
     minified: './dist/minified',
-    css: './dist/*.css',
+    css: './dist/css',
     images: './dist/images',
+    scssInuit: './dist/*.css',
     clean: './dist/*',
   }
 };
@@ -57,13 +59,33 @@ gulp.task('js-uglify', function (cb) {
     .pipe(gulp.dest(paths.dist.minified));
 });
 
+
+
+
+
+
 // SCSS Tasks
+// gulp.task('sass', function () {
+//   return gulp.src([paths.src.scss,paths.src.scssPartials,paths.src.scssInuit])
+//     .pipe(sass().on('error', sass.logError))
+//     .pipe(cleanCSS({compatibility: 'ie8'}))
+//     .pipe(gulp.dest(paths.dist.minified));
+// });
+
+
 gulp.task('sass', function () {
-  return gulp.src([paths.src.scss,paths.src.scssPartials])
+  return gulp.src([paths.src.scss,paths.src.scssPartials,paths.src.scssInuit])
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest(paths.dist.minified));
+    .pipe(gulp.dest(paths.dist.css));
 });
+
+
+//git submodule update    ---- this will get the files to show
+//add inuitcss to the dependencies list so when npm install is performed for this gulpfile then it wil be in nodemodules.
+
+
+
 
 //SASS Lint
 gulp.task(`sass-lint`, () => {
@@ -90,7 +112,7 @@ gulp.task('minify-html', function() {
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true
     }))
-    .pipe(gulp.dest(paths.dist.minified));
+    .pipe(gulp.dest(paths.dist.html));
 });
 
 // Image Tasks
