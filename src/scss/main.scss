@@ -1,3 +1,42 @@
+
+/*
+	-- Order here is important --
+	First the items from sass-mq to be overridden are declared.
+	Then the sass-mq module is imported.
+	Then inuitcss is imported.
+	The variables inside use !default, so if the variable has already 
+	been assigned to, it won’t be re-assigned, but if it doesn’t have 
+	a value yet, it will be given one.
+*/
+@import 'sass_mq_overrides';
+@import '../../node_modules/inuitcss/node_modules/sass-mq/mq';
+@import '../../node_modules/inuitcss/example.main';
+
+.foo {
+    @include mq($from: mobile, $until: tablet) {
+        background: red;
+    }
+    @include mq($from: tablet) {
+        background: green;
+    }
+}
+
+@include mq-add-breakpoint(tvscreen, 1920px);
+
+.hide-on-tv {
+    @include mq(tvscreen) {
+        display: none;
+    }
+}
+
+.danieltwo {
+	font-size: 20px;
+}
+
+
+
+
+
 body {
 	max-width: 1024px;
 	min-width: 250px;
