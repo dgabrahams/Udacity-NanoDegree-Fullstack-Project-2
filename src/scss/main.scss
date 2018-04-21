@@ -1,79 +1,151 @@
-/* ==========================================================================
-   INUITCSS
-   ========================================================================== */
-
-/**
- * inuitcss, by @csswizardry
- *
- * github.com/inuitcss | inuitcss.com
- */
-
-/**
- * This is an example inuitcss manifest file. DO NOT MODIFY THIS FILE DIRECTLY.
- * Instead, copy and paste it into your own CSS directory and make additions,
- * extensions, and modifications there.
- */
-
-/**
- * CONTENTS
- *
- * SETTINGS
- * Config...............Project-level configuration and feature switches.
- * Core.................inuitcss’ core and setup settings.
- * Global...............Project-wide variables and settings.
- *
- * TOOLS
- * Font-size............A mixin which guarantees baseline-friendly line-heights.
- * Clearfix.............Micro clearfix mixin.
- * Hidden...............Mixin for hiding elements.
- * Sass MQ..............inuitcss’ default media query manager.
- *
- * GENERIC
- * Box-sizing...........Better default `box-sizing`.
- * Normalize.css........A level playing field using @necolas’ Normalize.css.
- * Reset................A tiny reset to complement Normalize.css.
- * Shared...............Sensibly and tersely share some global commonalities
- *                      (particularly useful when managing vertical rhythm).
- *
- * ELEMENTS
- * Page.................Set up our document’s default `font-size` and
- *                      `line-height`.
- * Headings.............Very minimal (i.e. only font-size information) for
- *                      headings 1 through 6.
- * Images...............Base image styles.
- * Tables...............Simple table styles.
- *
- * OBJECTS
- * Wrapper..............Page constraint object.
- * Layout...............Generic layout module.
- * Media................Image- and text-like content side by side. The
- *                      poster-child of OOCSS.
- * Flag.................Table-layout-based advancement on the Media object.
- * List-bare............Lists with no bullets or indents.
- * List-inline..........A list whose items all site in a line.
- * Box..................Simple boxing abstraction.
- * Block................Image-on-top-of-text object.
- * Ratio................A container for maintaining aspect ratio of content.
- * Crop.................Provide a cropping context for media (images, etc.).
- * Table................Classes for manipulating `table`s.
- * Pack.................Pack items into available horizontal space.
- *
- * COMPONENTS
- * Buttons..............An example button component, and how it fits into the
- *                      inuitcss framework.
- *
- * UTILITIES
- * Clearfix.............Bind our clearfix onto a utility class.
- * Widths...............Simple width helper classes.
- * Headings.............Reassigning our heading styles to helper classes.
- * Spacings.............Nudge bits of the DOM around with these spacing
- *                      classes.
- * Responsive-Spacings..Enhances the function of normal spacings for
- *                      responsive usage.
- * Print................Reset-like styles taken from the HTML5 Boilerplate.
- * Hide.................Helper classes to hide content
- */
-
-.daniel {
-	font-size: 22px;
+body {
+	max-width: 1024px;
+	min-width: 250px;
+    margin: auto;
+    padding: 0 5% 0 5%;
+    font-family: Helvetica, sans-serif;
+	font-size: 16px;
 }
+header {
+	width: 100%;
+	text-align: right;
+	position: relative;
+	border-bottom: 3px #7d97ad solid;
+}
+main {
+	margin-bottom: 50px;
+}
+h1,
+h3 {
+	margin: auto;
+}
+h3 {
+	margin: 15px 0 0 0;
+}
+/*		footer{
+	height: 150px;
+	background-color: #2d3c49;
+	margin-top: 50px;
+}*/
+.header-title{
+	text-align: right;
+	display: inline-block;
+	margin: 25px auto auto auto;
+}
+.home-hero {
+   background-image: url("paper.gif");
+   background-color: #ffffff;
+/*		   margin: 25px auto auto auto;
+   padding: 30px 0 0 0;*/
+   /*border-top: 3px #7d97ad solid;*/
+}
+.home-featured {
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+}
+.home-featured-h2 {
+	color: #7d97ad;
+}
+.home-featured-item {
+	width:33%;
+	display: inline-block;
+	vertical-align: top;
+
+}
+.home-featured-title {
+	font-size: 1.2rem;
+	line-height: 1;
+	text-align: left;
+}
+.home-featured-item-title {
+	font-size: 1rem;
+	line-height: 1;
+	text-align: left;
+}
+.home-featured-item-img {
+	max-height: 250px;
+	height: 22vw;
+	overflow: hidden;	
+}
+.home-hero-img {
+/*			width: 100%;
+	height: auto;*/
+}
+.logo {
+	width: 80px;
+	height: auto;
+	display: inline-block;
+	position: absolute;
+	left: 0px; 
+	margin: 25px auto auto auto;
+}
+
+.home-featured-item.item-one {
+	float: left;
+}
+
+.home-featured-item.item-two {
+	
+}
+
+.home-featured-item.item-three {
+	float: right;
+}
+
+.home-featured-anchor {
+	display: block;
+	text-decoration: none;
+}
+.home-featured-anchor:visited {
+	color: #000000;
+}
+
+
+@media screen and (max-width: 48rem) {
+
+}
+
+@media screen and (max-width: 38rem) {
+	.header-title h1 {
+		font-size: 1.5rem;
+
+	}
+	.header-title h3 {
+		font-size: 1.2rem;
+	}
+	.logo {
+		width: 70px;
+	}
+	.home-featured-item {
+		width: 100%;
+		display: block;
+		float: none !important;
+	}
+	.home-featured-item-img {
+		max-height: 55vw;
+		height: 55vw;
+	}
+	.home-featured-title {
+		font-size: 1rem;
+	}
+	.home-featured-item-title {
+		font-size: 1.5rem;
+	}
+	h3 {
+		margin: 10px auto 10px auto;
+	}
+}
+
+
+
+/*$mq-breakpoints: (
+  s : 600px,
+  m : 800px,
+  l : 1000px,
+  xl: 1200px,
+);
+
+@include mq(xl) {
+  color: blue;
+}*/

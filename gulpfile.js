@@ -22,6 +22,7 @@ var paths = {
     scss: './src/scss/*.scss',
     scssPartials: './src/scss/partials/*.scss',
     scssInuit: './node_modules/inuitcss/*.scss',
+    scssMQ: './src/scss/sass_mq_overrides.scss',
     images: './src/images/*'
   },
   dist: {
@@ -73,8 +74,9 @@ gulp.task('js-uglify', function (cb) {
 // });
 
 
+//paths.src.scssInuit,paths.src.scssMQ,
 gulp.task('sass', function () {
-  return gulp.src([paths.src.scssInuit,paths.src.scss,paths.src.scssPartials])
+  return gulp.src([paths.src.scss,paths.src.scssPartials])
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(concat('main.min.css'))
