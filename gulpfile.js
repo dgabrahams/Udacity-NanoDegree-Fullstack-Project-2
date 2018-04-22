@@ -13,6 +13,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var htmlMinify = require('gulp-htmlmin');
 var imageMinify = require('gulp-tinypng');
+var clean = require('gulp-clean');
 
 var paths = {
   src : {
@@ -31,26 +32,25 @@ var paths = {
     js: './dist/*.js',
     minified: './dist/minified',
     css: './dist/css',
-    images: './dist/images',
+    // images: './dist/images',
+    images: './dist/images/',
     scssInuit: './dist/*.css',
-    clean: './dist/*',
+    clean: './dist',
   }
 };
 
-// Remove all previously generated files.
 gulp.task('clean', function() {
   return del([paths.dist.clean]).then(paths => {
-    console.info(chalk.green( 'Deleted files and folders:\n', paths.join('\n') ));
+    console.info(chalk.red( '\n*** Deleted /dist for cleanup ***', '\n'+paths.join('\n')+'\n' )); //'\n*** *** *** *** *** *** *** ***\n' 
   });
 });
 
 // Copy files required for initial run.
 // Use for dev to prevent minify-img running.
 gulp.task('copy-init-files', function () {
-    gulp.src(paths.src.images)
+    return gulp.src(paths.src.images)
         .pipe(gulp.dest(paths.dist.images));
 });
-
 
 // JS Lint
 gulp.task('js-lint', function() {
@@ -68,21 +68,7 @@ gulp.task('js-uglify', function (cb) {
     .pipe(gulp.dest(paths.dist.minified));
 });
 
-
-
-
-
-
 // SCSS Tasks
-// gulp.task('sass', function () {
-//   return gulp.src([paths.src.scss,paths.src.scssPartials,paths.src.scssInuit])
-//     .pipe(sass().on('error', sass.logError))
-//     .pipe(cleanCSS({compatibility: 'ie8'}))
-//     .pipe(gulp.dest(paths.dist.minified));
-// });
-
-
-//paths.src.scssInuit,paths.src.scssMQ,
 gulp.task('sass', function () {
   return gulp.src([paths.src.scss,paths.src.scssPartials])
     .pipe(sass().on('error', sass.logError))
@@ -140,8 +126,13 @@ gulp.task('watch', function() {
   gulp.watch(paths.src.html, ['minify-html']);
 });
 
-//Default Tasks
-gulp.task('default', ['clean', 'lint-html', 'lint-css',  'lint-js', 'copy-init-files', 'watch']);
+//Default Tasks - perform a clean before starting tasks
+gulp.task('default', ['clean'], function() {
+  gulp.start('all-tasks');
+});
+
+//All Tasks
+gulp.task('all-tasks', ['lint-html', 'lint-css',  'lint-js', 'copy-init-files', 'watch']);
 
 //Lint Tasks
 gulp.task('lint-js', ['js-lint', 'sass-lint']);
@@ -151,4 +142,3 @@ gulp.task('lint-css', ['sass-lint', 'sass']);
 
 //HTML Tasks
 gulp.task('lint-html', ['minify-html']);
-
