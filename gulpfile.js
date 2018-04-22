@@ -13,6 +13,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var htmlMinify = require('gulp-htmlmin');
 var imageMinify = require('gulp-tinypng');
+var gulpCopy = require('gulp-copy');
 
 var paths = {
   src : {
@@ -133,7 +134,14 @@ gulp.task('watch', function() {
 });
 
 //Default Tasks
-gulp.task('default', ['watch', 'clean']);
+gulp.task('default', ['clean', 'lint-html', 'lint-css',  'lint-js', 'watch']);
 
 //Lint Tasks
-gulp.task('lint', ['js-lint', 'sass-lint']);
+gulp.task('lint-js', ['js-lint', 'sass-lint']);
+
+//CSS Tasks
+gulp.task('lint-css', ['sass-lint', 'sass']);
+
+//HTML Tasks
+gulp.task('lint-html', ['minify-html']);
+
