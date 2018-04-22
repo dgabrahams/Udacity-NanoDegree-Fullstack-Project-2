@@ -1,8 +1,9 @@
 
 $mq-breakpoints: (
+	min:     300px,
     mobile:  320px,
-    tablet:  740px,
-    desktop: 980px,
+    tablet:  610px,
+    desktop: 900px,
     wide:    1300px,
-    custom:    2300px
+    custom:  2300px
 ) !default;
