@@ -13,7 +13,6 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var htmlMinify = require('gulp-htmlmin');
 var imageMinify = require('gulp-tinypng');
-var gulpCopy = require('gulp-copy');
 
 var paths = {
   src : {
@@ -44,6 +43,14 @@ gulp.task('clean', function() {
     console.info(chalk.green( 'Deleted files and folders:\n', paths.join('\n') ));
   });
 });
+
+// Copy files required for initial run.
+// Use for dev to prevent minify-img running.
+gulp.task('copy-init-files', function () {
+    gulp.src(paths.src.images)
+        .pipe(gulp.dest(paths.dist.images));
+});
+
 
 // JS Lint
 gulp.task('js-lint', function() {
@@ -134,7 +141,7 @@ gulp.task('watch', function() {
 });
 
 //Default Tasks
-gulp.task('default', ['clean', 'lint-html', 'lint-css',  'lint-js', 'watch']);
+gulp.task('default', ['clean', 'lint-html', 'lint-css',  'lint-js', 'copy-init-files', 'watch']);
 
 //Lint Tasks
 gulp.task('lint-js', ['js-lint', 'sass-lint']);
