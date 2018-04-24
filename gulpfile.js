@@ -32,7 +32,6 @@ var paths = {
     js: './dist/*.js',
     minified: './dist/minified',
     css: './dist/css',
-    // images: './dist/images',
     images: './dist/images/',
     scssInuit: './dist/*.css',
     clean: './dist',
@@ -52,21 +51,21 @@ gulp.task('copy-init-files', function () {
         .pipe(gulp.dest(paths.dist.images));
 });
 
-// JS Lint
-gulp.task('js-lint', function() {
-  return gulp.src(paths.src.js)
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-});
+// // JS Lint
+// gulp.task('js-lint', function() {
+//   return gulp.src(paths.src.js)
+//     .pipe(jshint())
+//     .pipe(jshint.reporter('default'));
+// });
 
-// JS Concat and Uglify
-gulp.task('js-uglify', function (cb) {
-  return gulp.src([paths.src.js])
-    .pipe(concat('HCON-Script.js')) //RENAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    .pipe(rename('HCON-Script.js')) //RENAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    .pipe(uglify())
-    .pipe(gulp.dest(paths.dist.minified));
-});
+// // JS Concat and Uglify
+// gulp.task('js-uglify', function (cb) {
+//   return gulp.src([paths.src.js])
+//     .pipe(concat('Script.js'))
+//     .pipe(rename('Script.js'))
+//     .pipe(uglify())
+//     .pipe(gulp.dest(paths.dist.minified));
+// });
 
 // SCSS Tasks
 gulp.task('sass', function () {
@@ -77,14 +76,7 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(paths.dist.css));
 });
 
-
-//git submodule update    ---- this will get the files to show
-//add inuitcss to the dependencies list so when npm install is performed for this gulpfile then it wil be in nodemodules.
-
-
-
-
-//SASS Lint
+// SASS Lint
 gulp.task(`sass-lint`, () => {
   return gulp.src(paths.src.scss)
     .pipe(sassLint())
@@ -135,7 +127,7 @@ gulp.task('default', ['clean'], function() {
 gulp.task('all-tasks', ['lint-html', 'lint-css',  'lint-js', 'copy-init-files', 'watch']);
 
 //Lint Tasks
-gulp.task('lint-js', ['js-lint', 'sass-lint']);
+// gulp.task('lint-js', ['js-lint', 'sass-lint']);
 
 //CSS Tasks
 gulp.task('lint-css', ['sass-lint', 'sass']);

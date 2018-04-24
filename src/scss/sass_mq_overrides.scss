@@ -1,3 +1,10 @@
+/*
+	Here place SassMQ varibales you wish to overrite.
+	Make sure the original used !default
+	main.scss imports libraries in an order to maintain
+	the overrides in this file. There is more information
+	on this issue in that file.
+*/
 
 $mq-breakpoints: (
 	min:     300px,
