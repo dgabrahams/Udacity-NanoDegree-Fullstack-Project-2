@@ -124,7 +124,7 @@ gulp.task('default', ['clean'], function() {
 });
 
 //All Tasks
-gulp.task('all-tasks', ['lint-html', 'lint-css',  'lint-js', 'copy-init-files', 'watch']);
+gulp.task('all-tasks', ['lint-html', 'lint-css', 'copy-init-files', 'watch']);
 
 //Lint Tasks
 // gulp.task('lint-js', ['js-lint', 'sass-lint']);
