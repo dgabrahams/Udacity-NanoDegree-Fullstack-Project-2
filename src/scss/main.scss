@@ -10,6 +10,8 @@
 @import '../../node_modules/inuitcss/node_modules/sass-mq/mq';
 @import '../../node_modules/inuitcss/example.main';
 
+@import 'partials/variables';
+
 body {
   font-family: Helvetica, sans-serif;
   font-size: 16px;
@@ -20,7 +22,7 @@ body {
 }
 
 header {
-  border-bottom: 3px #7d97ad solid;
+  border-bottom: 3px $grey solid;
   margin-bottom: 10px;
   margin-top: 10px;
   position: relative;
@@ -100,7 +102,7 @@ h3 {
   }
 
   .home-hero {
-    background-color: #fff;
+    background-color: $white;
     background-image: url('paper.gif');
   }
 
@@ -111,7 +113,7 @@ h3 {
   }
 
   .home-featured-h2 {
-    color: #7d97ad;
+    color: $grey;
   }
 
   .home-featured-item {
@@ -154,9 +156,9 @@ h3 {
   .home-featured-anchor {
 
     :visited {
-      color: #000;
+      color: $black;
     }
-    
+
   }
 
 }
