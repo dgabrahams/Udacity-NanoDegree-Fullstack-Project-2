@@ -77,7 +77,7 @@ https://gulpjs.com/
 ### INSTALL AND RUN
 ---
 
-To install the application, assuming that the required prerequisite software is installed, use GIT to clone the repository.
+To install the application, assuming that the required prerequisite software is installed, use GIT to clone the repository using a terminal console.
 
 Clone: https://github.com/dgabrahams/Udacity-NanoDegree-Fullstack-Project-2.git
 
@@ -99,6 +99,26 @@ Resolving deltas: 100% (40/40), done.
 Navigate into the newly created 'ud036_StarterCode' folder:
 ```
 cd Udacity-NanoDegree-Fullstack-Project-2
+```
+
+Run this command to get the required node modules:
+```
+npm install
+```
+
+To initiate inuitcss navigate into the folder:
+```
+cd node_modules/inuitcss
+```
+
+Install the required dependencies
+```
+npm install
+```
+
+Navigate back into the root folder:
+```
+cd ../..
 ```
 
 To run simply type the following:
