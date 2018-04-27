@@ -23,7 +23,7 @@ body {
 
 header {
   border-bottom: 3px $grey solid;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   margin-top: 10px;
   position: relative;
   text-align: right;
@@ -71,25 +71,43 @@ h3 {
   width: 100%;
 }
 
-.home-featured-item-img {
+.home-featured-item-img-wrap {
   height: 55vw;
   max-height: 55vw;
   overflow: hidden;
 }
 
+.home-featured-h2 {
+  color: $grey;
+  margin: 0 0 15px;
+}
+
+.home-featured-item-img {
+  height: auto;
+  width: 100%;
+}
+
 .home-featured-title {
   font-size: 1rem;
+  margin: 15px 0 0;
 }
 
 .home-featured-item-title {
   font-size: 1.5rem;
+  line-height: 1;
+  padding: 15px 0 0;
+  text-align: left;
+}
+
+.home-featured-anchor {
+  text-decoration: none;
 }
 
 @include mq($from: tablet) {
 
   .header-title {
     display: inline-block;
-    margin: 25px auto auto;
+    margin: 15px auto 25px;
     text-align: right;
   }
 
@@ -112,10 +130,6 @@ h3 {
     text-align: center;
   }
 
-  .home-featured-h2 {
-    color: $grey;
-  }
-
   .home-featured-item {
     display: inline-block;
     vertical-align: top;
@@ -125,32 +139,26 @@ h3 {
   .home-featured-title {
     font-size: 1.2rem;
     line-height: 1;
+    margin: 35px 0 0;
     text-align: left;
   }
 
-  .home-featured-item-title {
-    font-size: 1rem;
-    line-height: 1;
-    text-align: left;
-  }
-
-  .home-featured-item-img {
+  .home-featured-item-img-wrap {
     height: 22vw;
     max-height: 200px;
   }
 
-  // .home-hero-img {
-  // width: 100%;
-  // height: auto;
-  // }
-
   .logo {
+    margin: 15px 0 0;
     width: 4.5em;
+  }
+
+  .home-featured-item-title {
+    text-align: center;
   }
 
   .home-featured-anchor {
     display: block;
-    text-decoration: none;
   }
 
   .home-featured-anchor {
