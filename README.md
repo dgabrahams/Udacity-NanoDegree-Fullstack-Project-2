@@ -106,7 +106,7 @@ To run simply type the following:
 gulp
 ```
 
-This should run the gulp default task, which should delete the previous /dist folder and generate a new one with all the HTML, CSS, JS and other assets required. Then simply load the index.html file into a browser to view.
+This should run the gulp default task, which should delete the previous /dist folder and generate a new one with all the HTML, CSS, JS and other assets required. Then simply load the index.html file into a browser to view. Saving individual files should make a new version in /dist.
 
 ### License
 ---
