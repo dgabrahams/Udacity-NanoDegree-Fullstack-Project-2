@@ -8,7 +8,7 @@ The instructions in this readme will get a copy of the project up and running on
 ### Prerequisites
 ---
 
-It is assumed that an active connection to the internet will be available at all times. To run this program Node, NPM, GULP and GIT are required, plus access to Terminal (MAC Linux) or Command Prompt (Windows). Also required is that a web browser be installed. It was designed and tested using xxx 2.7.10.
+It is assumed that an active connection to the internet will be available at all times. To run this program Node, NPM, GULP and GIT are required, plus access to Terminal (MAC Linux) or Command Prompt (Windows). Also required is that a web browser be installed.
 
 Check if you have Node and NPM installed:
 
